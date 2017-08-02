@@ -42,12 +42,7 @@ namespace WindowsFormsApplication2
         {
             try
             {
-                Random r = new Random();
-                Random num = new Random();
-                string rand = players[r.Next(players.Count)];
-                selectPlayer(rand);
-                players.Remove(rand);
-
+                shuffle();
             }
             catch(Exception ex)
             {
@@ -60,7 +55,7 @@ namespace WindowsFormsApplication2
             pictureBox1.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + player + ".jpg");
         }
 
-        private async void selectPlayer(string player)
+        private async void shuffle()
         {
             Random r = new Random();
             Random num = new Random();
@@ -72,7 +67,16 @@ namespace WindowsFormsApplication2
                 label1.Text = rand;
                 await Task.Delay(50);
             }
+            selectPlayer();
+        }
 
+        private void selectPlayer()
+        {
+            Random r = new Random();
+            string rand = players[r.Next(players.Count)];
+            label1.Text = rand;
+            selectPicture(rand);
+            players.Remove(rand);
             count++;
             if (count % 2 == 0)
             {
