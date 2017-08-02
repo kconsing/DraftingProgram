@@ -33,7 +33,8 @@ namespace WindowsFormsApplication2
 
             Random r = new Random();
             string rand = players[r.Next(players.Count)];
-            
+
+
             InitializeComponent();
         }
 
@@ -42,20 +43,11 @@ namespace WindowsFormsApplication2
             try
             {
                 Random r = new Random();
+                Random num = new Random();
                 string rand = players[r.Next(players.Count)];
-                label1.Text = rand;
-                selectPicture(rand);
+                selectPlayer(rand);
                 players.Remove(rand);
-                count++;
-                if(count%2 == 0)
-                {
-                    listBox1.Items.Add(rand);
-                }
-                else
-                {
-                    listBox2.Items.Add(rand);
-                }
-                    
+
             }
             catch(Exception ex)
             {
@@ -66,7 +58,30 @@ namespace WindowsFormsApplication2
         private void selectPicture(string player)
         {
             pictureBox1.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + player + ".jpg");
+        }
 
+        private async void selectPlayer(string player)
+        {
+            Random r = new Random();
+            Random num = new Random();
+            string rand = "";
+            for (int i = 0; i < num.Next(10,50);i++)
+            {
+                rand = players[r.Next(players.Count)];
+                selectPicture(rand);
+                label1.Text = rand;
+                await Task.Delay(50);
+            }
+
+            count++;
+            if (count % 2 == 0)
+            {
+                listBox1.Items.Add(rand);
+            }
+            else
+            {
+                listBox2.Items.Add(rand);
+            }
         }
     }
 }
