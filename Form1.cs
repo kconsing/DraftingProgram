@@ -22,6 +22,7 @@ namespace WindowsFormsApplication2
 
         public Form1()
         {
+            //test
             players = new List<string>();
             string[] lines = File.ReadAllLines(_configpath);
 
