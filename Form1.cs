@@ -33,7 +33,7 @@ namespace WindowsFormsApplication2
 
             Random r = new Random();
             string rand = players[r.Next(players.Count)];
-
+            
             InitializeComponent();
         }
 
@@ -66,6 +66,7 @@ namespace WindowsFormsApplication2
         private void selectPicture(string player)
         {
             pictureBox1.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + player + ".jpg");
+
         }
     }
 }

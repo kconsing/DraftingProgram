@@ -20,13 +20,17 @@ namespace WindowsFormsApplication2
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 blindform = new Form1();
+            this.Visible = false;
             blindform.ShowDialog();
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Form3 draftform = new Form3();
+            this.Visible = false;
+            draftform.ShowDialog();
+            this.Close();
         }
     }
 }
